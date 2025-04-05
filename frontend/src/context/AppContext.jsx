@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const AppContext = createContext();
-const backendUrl = "http://localhost:5000";
 export const AppContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState({});
@@ -28,7 +27,6 @@ export const AppContextProvider = ({ children }) => {
     }
   };
   const value = {
-    backendUrl,
     isLoggedIn,
     setIsLoggedIn,
     userData,

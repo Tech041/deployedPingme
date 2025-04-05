@@ -4,7 +4,12 @@ import MessageContainer from "../../components/MessageContainer";
 import { AppContext } from "../../context/AppContext";
 
 const Home = () => {
-  const { authUser, navigate } = useContext(AppContext);
+  const { setAuthUser, authUser, navigate } = useContext(AppContext);
+
+  useEffect(() => {
+    const user = localStorage.getItem("chat-user");
+    setAuthUser(user);
+  }, []);
   useEffect(() => {
     if (!authUser) {
       navigate("/login");
