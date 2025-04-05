@@ -3,17 +3,18 @@ import SignUp from "./pages/signup/SignUp";
 import Home from "./pages/home/Home";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import Messages from "./pages/messages/Messages";
+import { useContext } from "react";
+import { AppContext } from "./context/AppContext";
 
 const App = () => {
+  const { authUser } = useContext(AppContext);
   return (
     <main className="p-4 h-screen flex items-center justify-center">
       <ToastContainer />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/messages" element={<Messages />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/" element={authUser ? <Home /> : <Login />} />
+        <Route path="/login" element={authUser ? <Home /> : <Login />} />
+        <Route path="/sign-up" element={authUser ? <Home /> : <SignUp />} />
       </Routes>
     </main>
   );
