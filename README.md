@@ -1,3 +1,4 @@
+This repo is not Live. The live repo is pingchat!!!!
 Real-Time Chat App
 
 A full-stack real-time chat application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack and Socket.IO, enabling seamless communication between users.
